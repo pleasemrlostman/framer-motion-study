@@ -5,14 +5,30 @@ function App() {
   const [isShow, setIsShow] = useState(true);
   const [isAnimate, setIsAnimate] = useState(true);
 
-  const list = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
+  // const list = {
+  //   visible: { opacity: 1 },
+  //   hidden: { opacity: 0 },
+  // };
 
   const item = {
     visible: { opacity: 1, x: 0, color: "red" },
     hidden: { opacity: 0, x: -100 },
+  };
+
+  const list = {
+    visible: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
   };
 
   return (
